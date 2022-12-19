@@ -1,46 +1,33 @@
 let myArray = [
-    "Rock",
-    "Paper",
-    "Scissors"
+    "rock",
+    "paper",
+    "scissors"
 ];
+
+
 
 let randomChoice = myArray[Math.floor(Math.random()*myArray.length)];
 
-playerSelection = prompt("Do you choose Rock, Paper or Scissors?").toLowerCase();
-computerSelection = randomChoice;
+let playerSelection = prompt("Do you choose Rock, Paper or Scissors?").toLowerCase();
+const computerSelection = randomChoice;
 
 function rockPaperScissors(playerSelection, computerSelection) {
-    if ((playerSelection == 'rock') && (computerSelection == 'Scissors')) {
-    return 'You win! Rock beats Scissors';
+    if ((playerSelection == 'rock') && (computerSelection == 'scissors') || (playerSelection == 'paper') && (computerSelection == 'rock') || (playerSelection == 'scissors') && (computerSelection == 'paper')) {
+    return 'You win!';
 }   
-    else if ((playerSelection == 'rock') && (computerSelection == 'Paper')) {
-    return 'You lose! Paper beats Rock';
+    else if ((playerSelection == 'rock') && (computerSelection == 'paper') || (playerSelection == 'paper') && (computerSelection == 'scissors') || (playerSelection == 'scissors') && (computerSelection == 'rock')) {
+    return 'You lose';
 }   
-    else if ((playerSelection == 'rock') && (computerSelection == 'Rock')) {
-    return 'Rock vs Rock is a draw!';
-    }
-    else if ((playerSelection == 'paper') && (computerSelection == 'Scissors')) {
-        return 'You lose! Scissors beats paper';
-    }
-    else if ((playerSelection == 'paper') && (computerSelection == 'Paper')) {
-        return 'Paper vs Paper is a draw!'
-    }
-    else if ((playerSelection == 'paper') && (computerSelection == 'Rock')) {
-        return 'You win! Paper beats Rock'
-    }
-    else if ((playerSelection == 'scissors') && (computerSelection
-        == 'Scissors')) {
-        return 'Scissors vs scissors is a draw!'
-        }
-    else if ((playerSelection == 'scissors') && (computerSelection == 'Paper')) {
-        return 'You win! Scissors beats Paper';
-    }
-    else if ((playerSelection == 'scissors') && (computerSelection == 'Rock')) {
-        return 'You lose! Rock beats Paper'
+    else if (playerSelection == computerSelection) {
+        return 'Draw';
     }
     else {
         return "You haven't entered a valid choice";
     }
+}
+
+for (let i = 0; i < 5; i++) {
+    
 }
 
 console.log(playerSelection);

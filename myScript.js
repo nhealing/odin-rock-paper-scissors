@@ -4,32 +4,65 @@ let myArray = [
     "scissors"
 ];
 
-
-
-let randomChoice = myArray[Math.floor(Math.random()*myArray.length)];
+let getComputerChoice = myArray[Math.floor(Math.random()*myArray.length)];
 
 let playerSelection = prompt("Do you choose Rock, Paper or Scissors?").toLowerCase();
-const computerSelection = randomChoice;
+let computerSelection = getComputerChoice;
 
-function rockPaperScissors(playerSelection, computerSelection) {
+//Plays a single round of RPS
+
+function playRound(playerSelection, computerSelection) {
     if ((playerSelection == 'rock') && (computerSelection == 'scissors') || (playerSelection == 'paper') && (computerSelection == 'rock') || (playerSelection == 'scissors') && (computerSelection == 'paper')) {
-    return 'You win!';
+    playerScore++
+    return win;
 }   
     else if ((playerSelection == 'rock') && (computerSelection == 'paper') || (playerSelection == 'paper') && (computerSelection == 'scissors') || (playerSelection == 'scissors') && (computerSelection == 'rock')) {
-    return 'You lose';
+        computerScore++
+         return lose;
 }   
     else if (playerSelection == computerSelection) {
-        return 'Draw';
+        drawScore++
+        return draw;
     }
     else {
         return "You haven't entered a valid choice";
     }
 }
 
-for (let i = 0; i < 5; i++) {
-    
+//define win, lose or draw
+ const win = "You win this round!";
+ const lose = "You lose this round!";
+ const draw = "It's a draw";
+
+//define scores
+let playerScore = 0;
+let computerScore = 0;
+let drawScore = 0;
+
+//Loop to play 5 rounds and output score
+
+function game() { 
+    for (let i =0; i <5; i++) {
+        let playerSelection = prompt("Do you choose Rock, Paper or Scissors?").toLowerCase();
+
+        console.log("You choose " + playerSelection);
+        console.log("The computer chose " + computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    if (playerScore>computerScore) {
+        return "You win this game!"
+    }
+    else if (playerScore == computerScore) {
+        return "This game is a draw!"
+    }
+    else {
+        return "You lose this game!"
+    }
 }
 
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(rockPaperScissors(playerSelection, computerSelection));
+console.log(game());
+console.log("Your final score is " + playerScore + " wins, " + computerScore + " losses and " + drawScore + " draws");
+
+let score = playerScore + computerScore + drawScore;
+
+console.log("You played this game " + score + " times.");

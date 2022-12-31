@@ -26,21 +26,21 @@ function playRound(playerSelection, computerSelection) {
 
 //Loop to play 5 rounds and output score
 
-function game() { 
-    for (let i =0; i <5; i++) {
-        let playerSelection = prompt("Do you choose Rock, Paper or Scissors?").toLowerCase();
+function game() {
+    for (let i = 0; i < 5; i++) {
+    playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
+    computerChoice = getComputerChoice()
 
-        console.log("You choose " + playerSelection);
-        console.log("The computer chose " + computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    if (playerScore>computerScore) {
-        return "You win this game!"
-    }
-    else if (playerScore == computerScore) {
-        return "This game is a draw!"
-    }
-    else {
-        return "You lose this game!"
+    console.log(playRound(playerSelection, computerChoice));
+    console.log("Your score is ", win);
+    console.log("Computers score is ", lose);
+
+    } if (win > lose) {
+        console.log("You win! Final score is " + win + " - " + lose + "!")
+    } else if ( win < lose) {
+        console.log("You lose! Final score is " + lose + " - " + win + "!")
+    } else {
+        console.log("Final score!   It's a " + win + " - " + lose + " draw!");
     }
 }
+ game();

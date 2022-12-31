@@ -24,11 +24,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//define scores
-let playerScore = 0;
-let computerScore = 0;
-let drawScore = 0;
-
 //Loop to play 5 rounds and output score
 
 function game() { 
@@ -49,12 +44,3 @@ function game() {
         return "You lose this game!"
     }
 }
-
-console.log(game());
-console.log("Your final score is " + playerScore + " wins, " + computerScore + " losses and " + drawScore + " draws");
-
-let score = playerScore + computerScore + drawScore;
-
-console.log("You played this game " + score + " times.");
-
-console.log(getComputerChoice)

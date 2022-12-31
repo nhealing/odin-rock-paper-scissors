@@ -1,5 +1,7 @@
-let computerChoice = getComputerChoice();
+let computerSelection = getComputerChoice();
 let playerSelection;
+let win = 0;
+let lose = 0;
 
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
@@ -9,27 +11,18 @@ function getComputerChoice() {
 //Plays a single round of RPS
 
 function playRound(playerSelection, computerSelection) {
-    if ((playerSelection == 'rock') && (computerSelection == 'scissors') || (playerSelection == 'paper') && (computerSelection == 'rock') || (playerSelection == 'scissors') && (computerSelection == 'paper')) {
-    playerScore++
-    return win;
-}   
-    else if ((playerSelection == 'rock') && (computerSelection == 'paper') || (playerSelection == 'paper') && (computerSelection == 'scissors') || (playerSelection == 'scissors') && (computerSelection == 'rock')) {
-        computerScore++
-         return lose;
-}   
-    else if (playerSelection == computerSelection) {
-        drawScore++
-        return draw;
-    }
-    else {
-        return "You haven't entered a valid choice";
+    if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
+        win++;
+        return "You win, " + playerSelection + " beats " + computerSelection  + "!";
+    } else if ((playerSelection === "rock" && computerSelection === "paper") || (playerSelection == "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock")) {
+        lose++;
+        return "You lose, " + computerSelection + " beats " + playerSelection  + "!";
+    } else if (playerSelection === computerSelection) {
+        return "Stalemate, " + playerSelection + " vs " + computerSelection + " is a draw!";
+    } else {
+        return "Invalid choice";
     }
 }
-
-//define win, lose or draw
- const win = "You win this round!";
- const lose = "You lose this round!";
- const draw = "It's a draw";
 
 //define scores
 let playerScore = 0;

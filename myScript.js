@@ -1,13 +1,10 @@
-let myArray = [
-    "rock",
-    "paper",
-    "scissors"
-];
+let computerChoice = getComputerChoice();
+let playerSelection;
 
-let getComputerChoice = myArray[Math.floor(Math.random()*myArray.length)];
-
-let playerSelection = prompt("Do you choose Rock, Paper or Scissors?").toLowerCase();
-let computerSelection = getComputerChoice;
+function getComputerChoice() {
+    let choices = ["rock", "paper", "scissors"];
+    return choices[Math.floor(Math.random() * choices.length)]
+}
 
 //Plays a single round of RPS
 
@@ -66,3 +63,5 @@ console.log("Your final score is " + playerScore + " wins, " + computerScore + "
 let score = playerScore + computerScore + drawScore;
 
 console.log("You played this game " + score + " times.");
+
+console.log(getComputerChoice)

@@ -1,15 +1,16 @@
+//defining global variables
 let computerSelection = getComputerChoice();
 let playerSelection;
 let win = 0;
 let lose = 0;
 
+//function to make random computer choice
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
-//Plays a single round of RPS
-
+//Plays a single round of RPS and adds to lose or win score
 function playRound(playerSelection, computerSelection) {
     if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")) {
         win++;
@@ -24,8 +25,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//Loop to play 5 rounds and output score
-
+//Loop to play 5 rounds and output score 
 function game() {
     for (let i = 0; i < 5; i++) {
     playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
